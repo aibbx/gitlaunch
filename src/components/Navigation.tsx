@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Github, Menu, X, Rocket, Users, Zap } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import { AuthButton } from "./AuthButton";
 
 export const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -52,10 +53,7 @@ export const Navigation = () => {
                 <Users className="w-3 h-3 mr-1" />
                 1,247 Developers
               </Badge>
-              <Button className="bg-purple-600 hover:bg-purple-700 text-white">
-                <Github className="mr-2 h-4 w-4" />
-                Connect GitHub
-              </Button>
+              <AuthButton />
             </div>
           </div>
 
@@ -90,10 +88,7 @@ export const Navigation = () => {
                   {item.name}
                 </Link>
               ))}
-              <Button className="bg-purple-600 hover:bg-purple-700 text-white">
-                <Github className="mr-2 h-4 w-4" />
-                Connect GitHub
-              </Button>
+              <AuthButton />
             </div>
           </div>
         )}

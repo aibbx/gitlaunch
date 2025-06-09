@@ -9,7 +9,253 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      dlmm_pools: {
+        Row: {
+          created_at: string | null
+          current_price: number | null
+          developer_fees: number | null
+          fee_percentage: number | null
+          id: string
+          liquidity_sol: number | null
+          liquidity_tokens: number | null
+          platform_fees: number | null
+          project_id: string | null
+          token_symbol: string
+          total_fees_collected: number | null
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          current_price?: number | null
+          developer_fees?: number | null
+          fee_percentage?: number | null
+          id?: string
+          liquidity_sol?: number | null
+          liquidity_tokens?: number | null
+          platform_fees?: number | null
+          project_id?: string | null
+          token_symbol: string
+          total_fees_collected?: number | null
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          current_price?: number | null
+          developer_fees?: number | null
+          fee_percentage?: number | null
+          id?: string
+          liquidity_sol?: number | null
+          liquidity_tokens?: number | null
+          platform_fees?: number | null
+          project_id?: string | null
+          token_symbol?: string
+          total_fees_collected?: number | null
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "dlmm_pools_project_id_fkey"
+            columns: ["project_id"]
+            isOneToOne: false
+            referencedRelation: "projects"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          bio: string | null
+          created_at: string | null
+          github_score: number | null
+          github_username: string | null
+          id: string
+          programming_languages: string[] | null
+          total_commits: number | null
+          total_tokens_earned: number | null
+          updated_at: string | null
+        }
+        Insert: {
+          avatar_url?: string | null
+          bio?: string | null
+          created_at?: string | null
+          github_score?: number | null
+          github_username?: string | null
+          id: string
+          programming_languages?: string[] | null
+          total_commits?: number | null
+          total_tokens_earned?: number | null
+          updated_at?: string | null
+        }
+        Update: {
+          avatar_url?: string | null
+          bio?: string | null
+          created_at?: string | null
+          github_score?: number | null
+          github_username?: string | null
+          id?: string
+          programming_languages?: string[] | null
+          total_commits?: number | null
+          total_tokens_earned?: number | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      projects: {
+        Row: {
+          commits: number | null
+          created_at: string | null
+          description: string | null
+          forks: number | null
+          id: string
+          issues: number | null
+          rating: number | null
+          repo_name: string
+          repo_url: string
+          stars: number | null
+          status: Database["public"]["Enums"]["project_status"] | null
+          token_balance: number | null
+          token_symbol: string | null
+          total_volume: number | null
+          updated_at: string | null
+          user_id: string | null
+        }
+        Insert: {
+          commits?: number | null
+          created_at?: string | null
+          description?: string | null
+          forks?: number | null
+          id?: string
+          issues?: number | null
+          rating?: number | null
+          repo_name: string
+          repo_url: string
+          stars?: number | null
+          status?: Database["public"]["Enums"]["project_status"] | null
+          token_balance?: number | null
+          token_symbol?: string | null
+          total_volume?: number | null
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          commits?: number | null
+          created_at?: string | null
+          description?: string | null
+          forks?: number | null
+          id?: string
+          issues?: number | null
+          rating?: number | null
+          repo_name?: string
+          repo_url?: string
+          stars?: number | null
+          status?: Database["public"]["Enums"]["project_status"] | null
+          token_balance?: number | null
+          token_symbol?: string | null
+          total_volume?: number | null
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      tasks: {
+        Row: {
+          assignee_id: string | null
+          created_at: string | null
+          creator_id: string | null
+          description: string
+          id: string
+          project_id: string | null
+          required_skills: string[] | null
+          reward_tokens: number
+          status: Database["public"]["Enums"]["task_status"] | null
+          title: string
+          updated_at: string | null
+        }
+        Insert: {
+          assignee_id?: string | null
+          created_at?: string | null
+          creator_id?: string | null
+          description: string
+          id?: string
+          project_id?: string | null
+          required_skills?: string[] | null
+          reward_tokens: number
+          status?: Database["public"]["Enums"]["task_status"] | null
+          title: string
+          updated_at?: string | null
+        }
+        Update: {
+          assignee_id?: string | null
+          created_at?: string | null
+          creator_id?: string | null
+          description?: string
+          id?: string
+          project_id?: string | null
+          required_skills?: string[] | null
+          reward_tokens?: number
+          status?: Database["public"]["Enums"]["task_status"] | null
+          title?: string
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "tasks_project_id_fkey"
+            columns: ["project_id"]
+            isOneToOne: false
+            referencedRelation: "projects"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      token_transactions: {
+        Row: {
+          amount: number
+          created_at: string | null
+          description: string | null
+          id: string
+          project_id: string | null
+          task_id: string | null
+          type: Database["public"]["Enums"]["transaction_type"]
+          user_id: string | null
+        }
+        Insert: {
+          amount: number
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          project_id?: string | null
+          task_id?: string | null
+          type: Database["public"]["Enums"]["transaction_type"]
+          user_id?: string | null
+        }
+        Update: {
+          amount?: number
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          project_id?: string | null
+          task_id?: string | null
+          type?: Database["public"]["Enums"]["transaction_type"]
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "token_transactions_project_id_fkey"
+            columns: ["project_id"]
+            isOneToOne: false
+            referencedRelation: "projects"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "token_transactions_task_id_fkey"
+            columns: ["task_id"]
+            isOneToOne: false
+            referencedRelation: "tasks"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
@@ -18,7 +264,9 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      project_status: "pending" | "inner_pool" | "graduated"
+      task_status: "open" | "in_progress" | "completed" | "cancelled"
+      transaction_type: "task_reward" | "platform_fee" | "burn" | "trade"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -133,6 +381,10 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      project_status: ["pending", "inner_pool", "graduated"],
+      task_status: ["open", "in_progress", "completed", "cancelled"],
+      transaction_type: ["task_reward", "platform_fee", "burn", "trade"],
+    },
   },
 } as const
