@@ -3,42 +3,58 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Github, Menu, X, Rocket, Users, Zap } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 export const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const navItems = [
+    { name: "首页", path: "/" },
+    { name: "发行代币", path: "/launch" },
+    { name: "AI评级", path: "/rating" },
+    { name: "交易市场", path: "/marketplace" },
+    { name: "仪表板", path: "/dashboard" }
+  ];
+
+  const isActive = (path: string) => location.pathname === path;
 
   return (
     <nav className="border-b border-slate-800 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2">
             <Rocket className="h-8 w-8 text-purple-400" />
             <span className="text-2xl font-bold text-white">GitLaunch</span>
             <Badge variant="secondary" className="bg-purple-600/20 text-purple-300 border-purple-500/30">
               Beta
             </Badge>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#features" className="text-slate-300 hover:text-purple-400 transition-colors">
-              Features
-            </a>
-            <a href="#projects" className="text-slate-300 hover:text-purple-400 transition-colors">
-              Projects
-            </a>
-            <a href="#docs" className="text-slate-300 hover:text-purple-400 transition-colors">
-              Docs
-            </a>
+            {navItems.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`transition-colors ${
+                  isActive(item.path)
+                    ? "text-purple-400"
+                    : "text-slate-300 hover:text-purple-400"
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
             <div className="flex items-center space-x-3">
               <Badge className="bg-green-600/20 text-green-300 border-green-500/30">
                 <Users className="w-3 h-3 mr-1" />
-                1,247 Developers
+                1,247 开发者
               </Badge>
               <Button className="bg-purple-600 hover:bg-purple-700 text-white">
                 <Github className="mr-2 h-4 w-4" />
-                Connect GitHub
+                连接GitHub
               </Button>
             </div>
           </div>
@@ -60,18 +76,23 @@ export const Navigation = () => {
         {isMenuOpen && (
           <div className="md:hidden border-t border-slate-800 py-4">
             <div className="flex flex-col space-y-4">
-              <a href="#features" className="text-slate-300 hover:text-purple-400 transition-colors">
-                Features
-              </a>
-              <a href="#projects" className="text-slate-300 hover:text-purple-400 transition-colors">
-                Projects
-              </a>
-              <a href="#docs" className="text-slate-300 hover:text-purple-400 transition-colors">
-                Docs
-              </a>
+              {navItems.map((item) => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className={`transition-colors ${
+                    isActive(item.path)
+                      ? "text-purple-400"
+                      : "text-slate-300 hover:text-purple-400"
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              ))}
               <Button className="bg-purple-600 hover:bg-purple-700 text-white">
                 <Github className="mr-2 h-4 w-4" />
-                Connect GitHub
+                连接GitHub
               </Button>
             </div>
           </div>
