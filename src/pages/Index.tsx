@@ -22,21 +22,21 @@ const Index = () => {
         <div className="max-w-4xl mx-auto text-center">
           <div className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl p-12">
             <h2 className="text-3xl font-bold text-white mb-4">
-              准备发行您的代币了吗？
+              Ready to Launch Your Token?
             </h2>
             <p className="text-purple-100 mb-8 text-lg">
-              加入下一代基于GitHub信誉的去中心化代币发行平台。
+              Join the next generation decentralized token launch platform based on GitHub credibility.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/launch">
                 <Button size="lg" className="bg-white text-purple-600 hover:bg-gray-100 font-semibold px-8 py-3">
                   <Github className="mr-2 h-5 w-5" />
-                  开始发行代币
+                  Start Token Launch
                 </Button>
               </Link>
               <Link to="/marketplace">
                 <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-3">
-                  浏览交易市场
+                  Browse Marketplace
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -45,35 +45,35 @@ const Index = () => {
         </div>
       </section>
       
-      {/* 快速导航 */}
+      {/* Quick Navigation */}
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <Link to="/launch" className="group">
               <div className="bg-slate-900/60 border border-slate-800 rounded-lg p-6 hover:border-purple-600/60 transition-colors">
-                <h3 className="text-white font-semibold mb-2 group-hover:text-purple-400">发行代币</h3>
-                <p className="text-slate-400 text-sm">基于GitHub项目创建SPL代币</p>
+                <h3 className="text-white font-semibold mb-2 group-hover:text-purple-400">Launch Token</h3>
+                <p className="text-slate-400 text-sm">Create SPL tokens based on GitHub projects</p>
               </div>
             </Link>
             
             <Link to="/rating" className="group">
               <div className="bg-slate-900/60 border border-slate-800 rounded-lg p-6 hover:border-purple-600/60 transition-colors">
-                <h3 className="text-white font-semibold mb-2 group-hover:text-purple-400">AI评级</h3>
-                <p className="text-slate-400 text-sm">获取项目智能评估报告</p>
+                <h3 className="text-white font-semibold mb-2 group-hover:text-purple-400">AI Rating</h3>
+                <p className="text-slate-400 text-sm">Get intelligent project assessment reports</p>
               </div>
             </Link>
             
             <Link to="/marketplace" className="group">
               <div className="bg-slate-900/60 border border-slate-800 rounded-lg p-6 hover:border-purple-600/60 transition-colors">
-                <h3 className="text-white font-semibold mb-2 group-hover:text-purple-400">交易市场</h3>
-                <p className="text-slate-400 text-sm">C2C代币交易平台</p>
+                <h3 className="text-white font-semibold mb-2 group-hover:text-purple-400">Marketplace</h3>
+                <p className="text-slate-400 text-sm">C2C token trading platform</p>
               </div>
             </Link>
             
             <Link to="/dashboard" className="group">
               <div className="bg-slate-900/60 border border-slate-800 rounded-lg p-6 hover:border-purple-600/60 transition-colors">
-                <h3 className="text-white font-semibold mb-2 group-hover:text-purple-400">仪表板</h3>
-                <p className="text-slate-400 text-sm">管理项目和贡献奖励</p>
+                <h3 className="text-white font-semibold mb-2 group-hover:text-purple-400">Dashboard</h3>
+                <p className="text-slate-400 text-sm">Manage projects and contribution rewards</p>
               </div>
             </Link>
           </div>

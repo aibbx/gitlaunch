@@ -10,11 +10,11 @@ export const Navigation = () => {
   const location = useLocation();
 
   const navItems = [
-    { name: "首页", path: "/" },
-    { name: "发行代币", path: "/launch" },
-    { name: "AI评级", path: "/rating" },
-    { name: "交易市场", path: "/marketplace" },
-    { name: "仪表板", path: "/dashboard" }
+    { name: "Home", path: "/" },
+    { name: "Launch Token", path: "/launch" },
+    { name: "AI Rating", path: "/rating" },
+    { name: "Marketplace", path: "/marketplace" },
+    { name: "Dashboard", path: "/dashboard" }
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -50,11 +50,11 @@ export const Navigation = () => {
             <div className="flex items-center space-x-3">
               <Badge className="bg-green-600/20 text-green-300 border-green-500/30">
                 <Users className="w-3 h-3 mr-1" />
-                1,247 开发者
+                1,247 Developers
               </Badge>
               <Button className="bg-purple-600 hover:bg-purple-700 text-white">
                 <Github className="mr-2 h-4 w-4" />
-                连接GitHub
+                Connect GitHub
               </Button>
             </div>
           </div>
@@ -92,7 +92,7 @@ export const Navigation = () => {
               ))}
               <Button className="bg-purple-600 hover:bg-purple-700 text-white">
                 <Github className="mr-2 h-4 w-4" />
-                连接GitHub
+                Connect GitHub
               </Button>
             </div>
           </div>

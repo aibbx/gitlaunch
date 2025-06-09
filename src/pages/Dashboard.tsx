@@ -62,18 +62,18 @@ const Dashboard = () => {
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-7xl mx-auto">
           <div className="mb-8">
-            <h1 className="text-4xl font-bold text-white mb-2">开发者仪表板</h1>
-            <p className="text-slate-300">管理您的项目代币和贡献奖励</p>
+            <h1 className="text-4xl font-bold text-white mb-2">Developer Dashboard</h1>
+            <p className="text-slate-300">Manage your project tokens and contribution rewards</p>
           </div>
 
-          {/* 概览统计 */}
+          {/* Overview Stats */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
             <Card className="bg-slate-900/80 border-slate-700">
               <CardContent className="p-6">
                 <div className="flex items-center">
                   <Coins className="h-8 w-8 text-purple-400" />
                   <div className="ml-4">
-                    <p className="text-sm font-medium text-slate-400">总代币价值</p>
+                    <p className="text-sm font-medium text-slate-400">Total Token Value</p>
                     <p className="text-2xl font-bold text-white">$21,350</p>
                   </div>
                 </div>
@@ -85,7 +85,7 @@ const Dashboard = () => {
                 <div className="flex items-center">
                   <DollarSign className="h-8 w-8 text-green-400" />
                   <div className="ml-4">
-                    <p className="text-sm font-medium text-slate-400">手续费收入</p>
+                    <p className="text-sm font-medium text-slate-400">Fee Revenue</p>
                     <p className="text-2xl font-bold text-white">$390.80</p>
                   </div>
                 </div>
@@ -97,7 +97,7 @@ const Dashboard = () => {
                 <div className="flex items-center">
                   <Users className="h-8 w-8 text-blue-400" />
                   <div className="ml-4">
-                    <p className="text-sm font-medium text-slate-400">活跃贡献者</p>
+                    <p className="text-sm font-medium text-slate-400">Active Contributors</p>
                     <p className="text-2xl font-bold text-white">23</p>
                   </div>
                 </div>
@@ -109,7 +109,7 @@ const Dashboard = () => {
                 <div className="flex items-center">
                   <TrendingUp className="h-8 w-8 text-yellow-400" />
                   <div className="ml-4">
-                    <p className="text-sm font-medium text-slate-400">平均AI评级</p>
+                    <p className="text-sm font-medium text-slate-400">Average AI Rating</p>
                     <p className="text-2xl font-bold text-white">8.95</p>
                   </div>
                 </div>
@@ -118,12 +118,12 @@ const Dashboard = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* 我的项目 */}
+            {/* My Projects */}
             <Card className="bg-slate-900/80 border-slate-700">
               <CardHeader>
                 <CardTitle className="text-white flex items-center">
                   <GitBranch className="mr-2 h-5 w-5" />
-                  我的项目
+                  My Projects
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -138,31 +138,31 @@ const Dashboard = () => {
                       </div>
                       <div className="text-right">
                         <div className="text-green-400 font-bold">{project.rating}/10</div>
-                        <div className="text-xs text-slate-400">AI评级</div>
+                        <div className="text-xs text-slate-400">AI Rating</div>
                       </div>
                     </div>
                     
                     <div className="grid grid-cols-3 gap-4 text-sm">
                       <div>
-                        <div className="text-slate-400">代币余额</div>
+                        <div className="text-slate-400">Token Balance</div>
                         <div className="text-white font-medium">{project.tokens}</div>
                       </div>
                       <div>
-                        <div className="text-slate-400">市值</div>
+                        <div className="text-slate-400">Market Value</div>
                         <div className="text-white font-medium">{project.value}</div>
                       </div>
                       <div>
-                        <div className="text-slate-400">手续费</div>
+                        <div className="text-slate-400">Fees Earned</div>
                         <div className="text-green-400 font-medium">{project.fees}</div>
                       </div>
                     </div>
                     
                     <div className="flex justify-between items-center mt-3 pt-3 border-t border-slate-700">
                       <span className="text-sm text-slate-400">
-                        {project.contributors} 个贡献者
+                        {project.contributors} contributors
                       </span>
                       <Button size="sm" variant="outline" className="border-slate-600 text-slate-300">
-                        查看详情
+                        View Details
                       </Button>
                     </div>
                   </div>
@@ -170,12 +170,12 @@ const Dashboard = () => {
               </CardContent>
             </Card>
 
-            {/* 我的贡献 */}
+            {/* My Contributions */}
             <Card className="bg-slate-900/80 border-slate-700">
               <CardHeader>
                 <CardTitle className="text-white flex items-center">
                   <Activity className="mr-2 h-5 w-5" />
-                  我的贡献
+                  My Contributions
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -203,7 +203,7 @@ const Dashboard = () => {
                 
                 <Button className="w-full bg-purple-600 hover:bg-purple-700">
                   <ArrowUpRight className="mr-2 h-4 w-4" />
-                  查看所有贡献
+                  View All Contributions
                 </Button>
               </CardContent>
             </Card>
