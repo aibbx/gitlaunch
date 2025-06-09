@@ -1,5 +1,6 @@
+
 import { Button } from "@/components/ui/button";
-import { Github, ArrowRight } from "lucide-react";
+import { Github, ArrowRight, Rocket } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Navigation } from "@/components/Navigation";
 import { HeroSection } from "@/components/HeroSection";
