@@ -22,7 +22,27 @@ export const useTasks = () => {
         .order('created_at', { ascending: false });
       
       if (error) throw error;
-      setTasks(data || []);
+      
+      // Transform the data to match our Task interface
+      const transformedTasks: Task[] = (data || []).map(item => ({
+        id: item.id,
+        title: item.title,
+        description: item.description,
+        required_skills: item.required_skills || [],
+        reward_tokens: item.reward_tokens,
+        status: item.status,
+        creator_id: item.creator_id,
+        assignee_id: item.assignee_id,
+        projects: {
+          repo_name: item.projects.repo_name,
+          token_symbol: item.projects.token_symbol
+        },
+        profiles: item.profiles ? {
+          github_username: item.profiles.github_username
+        } : null
+      }));
+      
+      setTasks(transformedTasks);
     } catch (error) {
       console.error('Error fetching tasks:', error);
     } finally {
